@@ -14,7 +14,9 @@ class BarangController extends Controller
      */
     public function index()
     {
-        //
+        //menampilkan membuat halaman web
+        $barang = barang::all();
+        return view('barang.index', compact('barang'));
     }
 
     /**
@@ -24,7 +26,8 @@ class BarangController extends Controller
      */
     public function create()
     {
-        //
+        //mengimput data
+        return view('barang.create');
     }
 
     /**
@@ -35,7 +38,19 @@ class BarangController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validasi form
+        $request->validate([
+            'kode_barang' => 'required',
+            'kode_nama' => 'required',
+            'kode_kateogori' => 'required',
+            'harga' => 'required',
+            'qty' => 'required',
+        ]);
+
+        //simpan data
+        barang::create($request->all());
+        return redirect()->route('barang'.'index')
+                         ->with('success','berhasil disimpan');
     }
 
     /**
