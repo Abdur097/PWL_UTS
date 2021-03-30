@@ -49,7 +49,7 @@ class BarangController extends Controller
 
         //simpan data
         barang::create($request->all());
-        return redirect()->route('barang'.'index')
+        return redirect()->route('barang.index')
                          ->with('success','berhasil disimpan');
     }
 
@@ -61,7 +61,8 @@ class BarangController extends Controller
      */
     public function show(barang $barang)
     {
-        //
+        //menampilkan data yang sudah diedit
+        return view('barang.edit', compact('barang'));
     }
 
     /**
@@ -72,7 +73,8 @@ class BarangController extends Controller
      */
     public function edit(barang $barang)
     {
-        //
+        //menjalankan perintah edit
+        return view('barang.edit', compact('barang'));
     }
 
     /**
@@ -84,7 +86,19 @@ class BarangController extends Controller
      */
     public function update(Request $request, barang $barang)
     {
-        //
+        //menjalankan perintah update, funcion validasi
+        $request->validate([
+            'kode_barang' => 'required',
+            'kode_nama' => 'required',
+            'kode_kateogori' => 'required',
+            'harga' => 'required',
+            'qty' => 'required',
+        ]);
+
+        //function update
+        $barang->update($request->all());
+        return redirect()->route('barang.idex')
+                         ->with('succsess','selesai');
     }
 
     /**
@@ -95,6 +109,8 @@ class BarangController extends Controller
      */
     public function destroy(barang $barang)
     {
-        //
+        //perintah delete
+        $barang->delete();
+        return redirect()->route('barang.index')->with('success', 'berhasil dihapus')
     }
 }
