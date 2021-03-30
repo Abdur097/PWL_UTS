@@ -111,6 +111,6 @@ class BarangController extends Controller
     {
         //perintah delete
         $barang->delete();
-        return redirect()->route('barang.index')->with('success', 'berhasil dihapus')
+        return redirect()->route('barang.index')->with('success', 'berhasil dihapus');
     }
 }
