@@ -24,11 +24,6 @@
                     @csrf
                     @method('PUT')
                     <div class="form-group">
-                        <label for="id_barang">Id Barang</label>
-                        <input type="id_barang" name="id_barang" class="form-control" id="id_barang" value="{{ $barang->id_barang }}" ariadescribedby="id_barang" >
-                    </div>
-
-                    <div class="form-group">
                         <label for="kode_barang">Kode Barang</label>
                         <input type="kode_barang" name="kode_barang" class="form-control" id="kode_barang" value="{{ $barang->kode_barang }}" ariadescribedby="kode_barang" >
                     </div>
