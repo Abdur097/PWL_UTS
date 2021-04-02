@@ -1,16 +1,16 @@
 @extends('barangs.layout')
 @section('content')
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left mt-2">
-                <h2></h2>
-            </div>
+<div class="row">
+    <div class="col-lg-12 margin-tb">
+        <div class="pull-left mt-2">
+            <h2></h2>
+        </div>
 
-            <div class="float-right my-2">
-                <a class="btn btnsuccess" href="{{ route('barangs.create') }}"> Input Barang</a>
-            </div>
+        <div class="float-right my-2">
+            <a class="btn btnsuccess" href="{{ route('barangs.create') }}"> Input Barang</a>
+        </div>
 
-            <div>
+        <div>
         </div>
     </div>
 
@@ -58,7 +58,7 @@
             <td>{{ $Barang->harga }}</td>
             <td>{{ $Barang->qty }}</td>
             <td>
-                <form action="{{ route('barangs.destroy',$Barang->id_barang) }}" method="POST">
+                <form action="{{ route('barangs.destroy',$Barang->id_barang) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus data barang?')">
                     <a class="btn btninfo" href="{{ route('barangs.show',$Barang->id_barang) }}"><button type="button" class="btn btn-success">Tampil</button></a>
                     <a class="btn btnprimary" href="{{ route('barangs.edit',$Barang->id_barang) }}"><button type="button" class="btn btn-warning">Edit</button></a>
                     @csrf
@@ -67,7 +67,7 @@
                 </form>
             </td>
         </tr>
-    @endforeach
+        @endforeach
     </table>
     {{ $barangs->links() }}
-@endsection
+    @endsection
