@@ -17,6 +17,13 @@ class BarangController extends Controller
         //menampilkan membuat halaman web
         $barang = barang::all();
         return view('barang.index', compact('barang'));
+        [function($query)use($request){
+            if (($term = $request->term)) {
+                $query->orWhere('nama_barang','LIKE','%'.$term.'%')
+                      ->orWhere('kode_barang','LIKE','%'.$term.'%')
+                      ->orWhere('kategori_barang','LIKE','%'.$term.'%')->get();
+            }
+        }]
     }
 
     /**

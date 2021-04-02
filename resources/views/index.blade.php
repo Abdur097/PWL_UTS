@@ -14,6 +14,25 @@
         </div>
     </div>
 
+    <div class="mx-auto pull-right">
+        <div class="float-left">
+            <form action="{{ route('barangs.index') }}" method="GET" role="search">
+                <div class="input-group">
+                    <span class="input-group-btn mr-5 mt-1">
+                        <button class="btn btn-info" type="submit" title="Search Barang">
+                            <span class="fas fa-search">Search</span>
+                        </button>
+                    </span>
+                    <input type="text" class="form-control mr-2" name="term" placeholder="Search Nama Barang" id="term">
+                    <a href="{{ route('barangs.index') }}" class=" mt-1">
+                        <span class="input-group-btn">
+                        </span>
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+
     @if ($message = Session::get('success'))
     <div class="alert alert-success">
         <p>{{ $message }}</p>
