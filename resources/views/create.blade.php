@@ -23,11 +23,6 @@
                     <form method="post" action="{{ route('barang.store') }}" id="myForm">
                         @csrf
                         <div class="form-group">
-                            <label for="id_barang">Id Barang</label>
-                            <input type="text" name="id_barang" class="form-control" id="id_barang" aria-describedby="id_barang" >
-                        </div>
-
-                        <div class="form-group">
                             <label for="kode_barang">Kode Barang</label>
                             <input type="kode_barang" name="kode_barang" class="form-control" id="kode_barang" aria-describedby="kode_barang" >
                         </div>
